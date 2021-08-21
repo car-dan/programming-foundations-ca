@@ -1,6 +1,6 @@
 //question 1
 
-var outOfStock = true;
+var outOfStock = false;
 
 if (outOfStock === true) {
     console.log("Out of stock");
@@ -46,7 +46,7 @@ var ul = document.querySelector(".games");
 
 function gamesRating() {
     for (var i = 0; i < games.length; i++) {
-        if (games[i].rating <= 3.5 && games[i].rating != null) {
+        if (games[i].rating <= 3.5 && games[i].rating !== null) {
 
             var gameRating = games[i].title + ": " + games[i].rating;
             var li = document.createElement("li");
@@ -64,7 +64,7 @@ gamesRating();
 
 function whatIDontLike(input) {
     
-if (typeof input != "string") {
+if (typeof input !== "string") {
         console.log("Please send in a string")
 } else {
     console.log("I don`t like " + input);
@@ -92,7 +92,7 @@ function subtraction(number1, number2) {
 
 };
 
-subtraction("8", 2);
+subtraction(6, 2);
 
 
 //question 6
@@ -104,12 +104,15 @@ var headingText = document.querySelector("h1").innerText;
 var body = document.querySelector("body");
 
 
+
 function changeStyle() {
     title.innerHTML = "Updated title";
     body.style.backgroundColor = "yellow"
     heading.style.color = "green";
     heading.style.fontFamily = "impact";
     heading.innerHTML = "<a href ='#'>" + headingText + "</a>";
+    var a = document.querySelector("a");
+    a.style.color = "green";
     ul.style.listStyle = "none";
     ul.style.padding = "0";
      
@@ -142,13 +145,14 @@ var toys = [
 var calc = document.querySelector(".price");
 var total = document.querySelector("#total");
 var sum = 0;
+
 function calcPrice() {
     for (var i = 0; i < toys.length; i++){
         if (!isNaN(parseFloat(toys[i].price))) {
             sum += parseFloat(toys[i].price);
         }
     };
-    console.log("sum:", sum);
+   
     total.innerHTML = sum; 
 
     
